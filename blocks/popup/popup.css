@@ -1,0 +1,16 @@
+.popup {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+
+@media screen and (max-width: 320px) {
+    .popup {
+        max-width: 282px;
+        min-height: 46px;
+        margin-left: 19px;
+    }
+}
