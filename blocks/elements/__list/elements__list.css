@@ -18,14 +18,7 @@
         margin-right: 289px;
     }
 }
-/*
-@media screen and (max-width: 899px) {
-    .elements__list {
-        margin-left: calc(288px + (289 - 288) * (100vw - 899px) / (900 - 899));
-        margin-right: calc(288px + (289 - 288) * (100vw - 899px) / (900 - 899));
-    }
-}
-*/
+
 @media screen and (max-width: 600px) {
     .elements__list {
         margin-left: calc(70px + (289 - 70) * (100vw - 600px) / (900 - 600));
@@ -37,12 +30,5 @@
     .elements__list {
         margin-left: calc(50px + (70 - 50) * (100vw - 500px) / (600 - 500));
         margin-right: calc(50px + (70 - 50) * (100vw - 500px) / (600 - 500));
-    }
-}
-/*
-@media screen and (max-width: 320px) {
-    .elements__list {
-        margin-left: calc(19px + (70 - 19) * (100vw - 320px) / (600 - 320));
-        margin-right: calc(19px + (70 - 19) * (100vw - 320px) / (600 - 320));
     }
 }
