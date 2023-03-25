@@ -1,7 +1,7 @@
 .popup__close {
     position: absolute;
-    margin-top: -40px;
-    margin-right: -475px;
+    top: 155px;
+    right: 385px;
     padding: 0;
     min-width: 32px;
     min-height: 32px;
@@ -18,8 +18,8 @@
 
 @media screen and (max-width: 600px) {
     .popup__close {
-        margin-top: -36px;
-        margin-right: -260px;
+        top: 87px;
+        right: 0;
         min-width: 20px;
         min-height: 20px;
     }

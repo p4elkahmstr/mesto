@@ -1,11 +1,13 @@
 .popup__submit {
     margin-top: 48px;
-    max-width: 100%;
+    min-width: 358px;
     padding: 0;
     min-height: 50px;
     background-color: #000000;
     color: #ffffff;
     border-radius: 2px;
+    font-size: 18px;
+    line-height: 1.2222;
 }
 
 .popup__submit:hover {
@@ -15,5 +17,8 @@
 @media screen and (max-width: 600px) {
     .popup__submit {
         min-width: 238px;
+        font-size: 14px;
+        line-height: 1.2142;
+        margin-top: 58px;
     }
 }
