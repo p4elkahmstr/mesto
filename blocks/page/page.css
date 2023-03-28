@@ -5,10 +5,3 @@
     max-width: 880px;
     margin: 0 auto;
 }
-
-@media screen and (max-width: 900px) {
-    .page {
-        margin-left: 19px;
-        margin-right: 19px;
-    }
-}

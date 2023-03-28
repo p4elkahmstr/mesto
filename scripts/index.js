@@ -1,5 +1,3 @@
-console.log("Privsdadfafet");
-
 const popupElement = document.querySelector(".popup");
 const popupCloseButtonElement = popupElement.querySelector(".popup__close");
 const popupEditButtonElement = document.querySelector(".profile__edit-button");
@@ -7,7 +5,7 @@ const profileName = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__subtitle");
 const formProfileName = popupElement.querySelector("#name");
 const formProfileDescription = popupElement.querySelector("#description");
-const popupEditForm = popupElement.querySelector("form");
+const popupEditForm = popupElement.querySelector(".popup__form");
 const popupSubmit = popupElement.querySelector(".popup__submit");
 
 const openPopup = function () {
@@ -26,12 +24,12 @@ const closePopupByClickOnOverlay = function (event) {
     closePopup();
 };
 
-const submitPopup = function (event) {
+function submitPopup(event) {
     event.preventDefault();
     profileName.textContent = formProfileName.value;
     profileDescription.textContent = formProfileDescription.value;
     closePopup();
-};
+}
 
 popupEditButtonElement.addEventListener("click", openPopup);
 popupCloseButtonElement.addEventListener("click", closePopup);

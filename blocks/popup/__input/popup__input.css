@@ -1,7 +1,7 @@
 .popup__input {
     border: none;
     padding: 0;
-    border-bottom: 1px solid #000000;
-    margin-top: 30px;
+    border-bottom: 1px solid rgba(00, 00, 00, 0.2);
+    margin-top: 36px;
     max-width: 100%;
 }

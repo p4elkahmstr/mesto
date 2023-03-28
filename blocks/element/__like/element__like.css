@@ -1,13 +1,17 @@
 .element__like {
-    min-width: 22px;
-    max-height: 22px;
-    object-fit: cover;
+    width: 22px;
+    height: 22px;
     background-repeat: no-repeat;
     border: none;
     background-color: #ffffff;
     background-image: url(../../../images/like.svg);
+    background-size: contain;
+    border: none;
+    align-self: center;
+    background-size: 22px 19px;
 }
 
 .element__like:hover {
     opacity: 0.5;
+    cursor: pointer;
 }
