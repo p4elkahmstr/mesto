@@ -10,6 +10,8 @@ const popupSubmit = popupElement.querySelector(".popup__submit");
 
 const openPopup = function () {
     popupElement.classList.add("popup_opened");
+    formProfileName.value = profileName.textContent;
+    formProfileDescription.value = profileDescription.textContent;
     console.log("Open popup clicked");
 };
 
@@ -24,12 +26,12 @@ const closePopupByClickOnOverlay = function (event) {
     closePopup();
 };
 
-function submitPopup(event) {
+const submitPopup = function (event) {
     event.preventDefault();
     profileName.textContent = formProfileName.value;
     profileDescription.textContent = formProfileDescription.value;
     closePopup();
-}
+};
 
 popupEditButtonElement.addEventListener("click", openPopup);
 popupCloseButtonElement.addEventListener("click", closePopup);
