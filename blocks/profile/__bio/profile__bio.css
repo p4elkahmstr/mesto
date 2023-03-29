@@ -8,6 +8,6 @@
 @media screen and (max-width: 900px) {
     .profile__bio {
         flex-direction: column;
-        gap: 22.25px;
+        gap: 23px;
     }
 }
