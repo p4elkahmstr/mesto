@@ -1,0 +1,17 @@
+.element__busket {
+    position: absolute;
+    background-image: url(../../../images/group.svg);
+    min-width: 18px;
+    top: 20px;
+    left: 244px;
+    background-repeat: no-repeat;
+    min-height: 19px;
+    background-size: 19px 18px;
+    background-color: transparent;
+    border: none;
+}
+
+.element__busket:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}

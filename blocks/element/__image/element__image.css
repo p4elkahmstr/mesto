@@ -1,7 +1,13 @@
 .element__image {
     max-width: 100%;
-    object-fit: contain;
+    max-height: 362px;
+    object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     display: block;
+    aspect-ratio: 1/1;
+}
+
+.element__image:hover {
+    cursor: pointer;
 }
