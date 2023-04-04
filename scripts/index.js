@@ -38,7 +38,7 @@ popupCloseButtonElement.addEventListener("click", closePopup);
 popupElement.addEventListener("click", closePopupByClickOnOverlay);
 popupEditForm.addEventListener("submit", submitPopup);
 
-const popupAddCardElement = document.querySelector(".popup__add-card");
+const popupAddCardElement = document.querySelector(".popup_add-card");
 const popupAddButtonElement = document.querySelector(".profile__add-button");
 const popupAddCardCloseButtonElement = popupAddCardElement.querySelector(
     ".popup__close_add-card"
@@ -46,7 +46,7 @@ const popupAddCardCloseButtonElement = popupAddCardElement.querySelector(
 const popupAddForm = popupAddCardElement.querySelector(".popup__form");
 const popupNameElement = popupAddCardElement.querySelector("#title");
 const popupUrlElement = popupAddCardElement.querySelector("#url");
-const popupImage = document.querySelector(".popup__picture");
+const popupImage = document.querySelector(".popup_picture");
 const popupImageElement = popupImage.querySelector(".popup__img");
 const popupImageTextElement = popupImage.querySelector(".popup__text");
 const listElement = document.querySelector(".elements__list");
