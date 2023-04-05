@@ -1,41 +1,46 @@
-const popupElement = document.querySelector(".popup");
-const popupCloseButtonElement = popupElement.querySelector(".popup__close");
+const popupProfileElement = document.querySelector(".popup_profile");
+const popups = document.querySelectorAll(".popup");
 const popupEditButtonElement = document.querySelector(".profile__edit-button");
 const profileName = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__subtitle");
-const formProfileName = popupElement.querySelector("#name");
-const formProfileDescription = popupElement.querySelector("#description");
-const popupEditForm = popupElement.querySelector(".popup__form");
-const popupSubmit = popupElement.querySelector(".popup__submit");
+const formProfileName = popupProfileElement.querySelector("#name");
+const formProfileDescription =
+    popupProfileElement.querySelector("#description");
+const popupEditForm = popupProfileElement.querySelector(".popup__form");
 
-const openPopup = function () {
-    popupElement.classList.add("popup_opened");
-    formProfileName.value = profileName.textContent;
-    formProfileDescription.value = profileDescription.textContent;
-    console.log("Open popup clicked");
-};
-
-const closePopup = function () {
-    popupElement.classList.remove("popup_opened");
-};
-
-const closePopupByClickOnOverlay = function (event) {
-    if (event.target !== event.currentTarget) {
-        return;
-    }
-    closePopup();
-};
-
+//общая функция открытия попапа
+function openPopup(popup) {
+    popup.classList.add("popup_opened");
+}
+//общая функция закрытия попапа
+function closePopup(popup) {
+    popup.classList.remove("popup_opened");
+}
+//закрытие любого попапа по крестику и по нажатию на оверлей
+popups.forEach((popup) => {
+    popup.addEventListener("mousedown", (event) => {
+        if (event.target.classList.contains("popup_opened")) {
+            closePopup(popup);
+        }
+        if (event.target.classList.contains("popup__close")) {
+            closePopup(popup);
+        }
+    });
+});
+//константа для сохранения введеных изменений в попап профайла
 const submitPopup = function (event) {
     event.preventDefault();
     profileName.textContent = formProfileName.value;
     profileDescription.textContent = formProfileDescription.value;
-    closePopup();
+    closePopup(popupProfileElement);
 };
-
-popupEditButtonElement.addEventListener("click", openPopup);
-popupCloseButtonElement.addEventListener("click", closePopup);
-popupElement.addEventListener("click", closePopupByClickOnOverlay);
+//нажатие на кнопку редактирования открывает попап профайла с сохраненной ранее введенной информацией
+popupEditButtonElement.addEventListener("click", () => {
+    formProfileName.value = profileName.textContent;
+    formProfileDescription.value = profileDescription.textContent;
+    openPopup(popupProfileElement);
+});
+//нажатие на сохранить сохраняет изменения и закрывает профайл попап
 popupEditForm.addEventListener("submit", submitPopup);
 
 const popupAddCardElement = document.querySelector(".popup_add-card");
@@ -79,22 +84,6 @@ const initialCards = [
     },
 ];
 
-const openPopupAddCard = function () {
-    popupAddCardElement.classList.add("popup_opened");
-    console.log("Open popup add card clicked");
-};
-
-const closePopupAddCard = function () {
-    popupAddCardElement.classList.remove("popup_opened");
-};
-
-const closePopupAddCardByClickOnOverlay = function (event) {
-    if (event.target !== event.currentTarget) {
-        return;
-    }
-    closePopupAddCard();
-};
-
 const startCard = function (object) {
     const gridElement = cardElement.querySelector(".element").cloneNode(true);
     const imageElement = gridElement.querySelector(".element__image");
@@ -127,16 +116,6 @@ const startCard = function (object) {
         popupImage.classList.remove("popup_opened");
     };
 
-    const closePopupImageByClickOnOverlay = function (event) {
-        if (event.target !== event.currentTarget) {
-            return;
-        }
-        closePopupImage();
-    };
-
-    popupClosePicture.addEventListener("click", closePopupImage);
-    popupImage.addEventListener("click", closePopupImageByClickOnOverlay);
-
     return gridElement;
 };
 
@@ -162,8 +141,5 @@ const likeCard = function (event) {
 
 popupAddButtonElement.addEventListener("click", openPopupAddCard);
 popupAddCardCloseButtonElement.addEventListener("click", closePopupAddCard);
-popupAddCardElement.addEventListener(
-    "click",
-    closePopupAddCardByClickOnOverlay
-);
+
 popupAddForm.addEventListener("submit", submitPopupAddCard);
