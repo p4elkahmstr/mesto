@@ -47,11 +47,21 @@ const initialCards = [
 //общая функция открытия попапа
 function openPopup(popup) {
     popup.classList.add("popup_opened");
+    document.addEventListener("keydown", closePopupByEsc);
 }
 //общая функция закрытия попапа
 function closePopup(popup) {
     popup.classList.remove("popup_opened");
+    document.removeEventListener("keydown", closePopupByEsc);
 }
+
+function closePopupByEsc(event) {
+    if (event.key === "Escape") {
+        const popupOpened = document.querySelector(".popup_opened");
+        closePopup(popupOpened);
+    }
+}
+
 //закрытие любого попапа по крестику и по нажатию на оверлей
 popups.forEach((popup) => {
     popup.addEventListener("mousedown", (event) => {
@@ -97,7 +107,7 @@ const startCard = function (object) {
     busketElement.addEventListener("click", (event) =>
         event.target.closest(".element").remove()
     );
-    //нажатие на картинку открываеи картинку с ее названием
+    //нажатие на картинку открывает картинку с ее названием
     imageElement.addEventListener("click", () => {
         popupImageElement.alt = object.name;
         popupImageElement.src = object.link;
