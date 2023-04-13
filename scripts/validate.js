@@ -25,7 +25,7 @@ const setEventListeners = (
         formToValidate.querySelectorAll(inputSelector)
     );
     const formButton = formToValidate.querySelector(submitButtonSelector);
-
+    disableButton(formButton, rest);
     formInputs.forEach((input) => {
         input.addEventListener("input", () => {
             checkInputValidity(input);

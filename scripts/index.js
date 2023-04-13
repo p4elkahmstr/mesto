@@ -6,7 +6,8 @@ const profileDescription = document.querySelector(".profile__subtitle");
 const formProfileName = popupProfileElement.querySelector("#name");
 const formProfileDescription =
     popupProfileElement.querySelector("#description");
-const popupEditForm = popupProfileElement.querySelector(".popup__form");
+const profileForm = document.forms["profile-form"];
+const cardFrom = document.forms["card-form"];
 const popupAddCardElement = document.querySelector(".popup_add-card");
 const popupAddButtonElement = document.querySelector(".profile__add-button");
 const popupAddForm = popupAddCardElement.querySelector(".popup__form");
@@ -74,7 +75,7 @@ popups.forEach((popup) => {
     });
 });
 //константа для сохранения введеных изменений в попап профайла
-const submitPopup = function (event) {
+const handleProfileFormSubmit = function (event) {
     event.preventDefault();
     profileName.textContent = formProfileName.value;
     profileDescription.textContent = formProfileDescription.value;
@@ -87,9 +88,9 @@ popupEditButtonElement.addEventListener("click", () => {
     openPopup(popupProfileElement);
 });
 //нажатие на кнопку сохранения сохраняет изменения и закрывает профайл попап
-popupEditForm.addEventListener("submit", submitPopup);
+profileForm.addEventListener("submit", handleProfileFormSubmit);
 //константа для карточки
-const startCard = function (object) {
+const createCard = function (object) {
     const gridElement = cardElement.querySelector(".element").cloneNode(true);
     const imageElement = gridElement.querySelector(".element__image");
     const titleElement = gridElement.querySelector(".element__title");
@@ -118,7 +119,7 @@ const startCard = function (object) {
 };
 
 initialCards.forEach(function (item) {
-    const card = startCard(item);
+    const card = createCard(item);
     listElement.append(card);
 });
 //константа для добавления картинки с названием
@@ -128,7 +129,7 @@ const submitPopupAddCard = function (event) {
         name: popupNameElement.value,
         link: popupUrlElement.value,
     };
-    listElement.prepend(startCard(objectNameAndUrl));
+    listElement.prepend(createCard(objectNameAndUrl));
     closePopup(popupAddCardElement);
     event.target.reset();
 };

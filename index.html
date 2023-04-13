@@ -47,7 +47,7 @@
                 <form
                     action="#"
                     class="popup__form"
-                    name="edit-profile-info"
+                    name="profile-form"
                     novalidate
                 >
                     <h2 class="popup__title">Редактировать профиль</h2>
@@ -87,7 +87,12 @@
                     class="popup__close popup__close_add-card"
                     type="button"
                 ></button>
-                <form action="#" class="popup__form" name="add-card" novalidate>
+                <form
+                    action="#"
+                    class="popup__form"
+                    name="card-form"
+                    novalidate
+                >
                     <h2 class="popup__title">Новое место</h2>
                     <input
                         type="text"
@@ -112,6 +117,7 @@
                     <button
                         type="submit"
                         class="popup__submit popup__submit_valid"
+                        disabled
                     >
                         Создать
                     </button>
