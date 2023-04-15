@@ -125,6 +125,8 @@ initialCards.forEach(function (item) {
 //константа для добавления картинки с названием
 const submitPopupAddCard = function (event) {
     event.preventDefault();
+    const buttonSubmit = popupAddForm.querySelector(".popup__submit");
+    disableButton(buttonSubmit, validationConfig);
     const objectNameAndUrl = {
         name: popupNameElement.value,
         link: popupUrlElement.value,
