@@ -1,4 +1,4 @@
-import initialCards from "./constants.js";
+import { initialCards, validationConfig } from "./constants.js";
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 
@@ -23,16 +23,6 @@ const popupImageTextElement = popupImage.querySelector(".popup__text");
 const listElement = document.querySelector(".elements__list");
 const selectorTemplate = "#cardElement";
 
-const validationConfig = {
-    formSelector: ".popup__form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__submit",
-    inactiveButtonClass: "popup__submit_invalid",
-    activeButtonClass: "popup__submit_valid",
-    inputErrorClass: "popup__input_valid",
-    errorClass: "popup__input_invalid",
-};
-
 //общая функция открытия попапа
 function openPopup(popup) {
     popup.classList.add("popup_opened");
@@ -54,14 +44,14 @@ function closePopupByEsc(event) {
 //закрытие любого попапа по крестику и по нажатию на оверлей
 popups.forEach((popup) => {
     popup.addEventListener("mousedown", (event) => {
-        if (event.target.classList.contains("popup_opened")) {
+        if (
+            event.target.classList.contains("popup_opened") ||
+            event.target.classList.contains("popup__close")
+        )
             closePopup(popup);
-        }
-        if (event.target.classList.contains("popup__close")) {
-            closePopup(popup);
-        }
     });
 });
+
 //константа для сохранения введеных изменений в попап профайла
 const handleProfileFormSubmit = function (event) {
     event.preventDefault();
@@ -89,8 +79,7 @@ const openPopupImage = (data) => {
 
 function createNewCard(e) {
     const card = new Card(e, selectorTemplate, openPopupImage);
-    const cardElement = card.createCard();
-    return cardElement;
+    return card.createCard();
 }
 
 function addCard(container, card) {

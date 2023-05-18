@@ -25,4 +25,14 @@ const initialCards = [
     },
 ];
 
-export default initialCards;
+const validationConfig = {
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__submit",
+    inactiveButtonClass: "popup__submit_invalid",
+    activeButtonClass: "popup__submit_valid",
+    inputErrorClass: "popup__input_valid",
+    errorClass: "popup__input_invalid",
+};
+
+export { initialCards, validationConfig };

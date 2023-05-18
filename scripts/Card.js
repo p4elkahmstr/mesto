@@ -1,8 +1,6 @@
 export default class Card {
     constructor(data, selectorTemplate, openPopupImage) {
         this._data = data;
-        this._link = data.link;
-        this._name = data.name;
         this._selectorTemplate = selectorTemplate;
         this._openPopupImage = openPopupImage;
     }
@@ -20,6 +18,9 @@ export default class Card {
     _handleDelete = () => {
         this._cloneElement.remove();
         this._cloneElement = null;
+        this._likeElement = null;
+        this._imageElement = null;
+        this._titleElement = null;
     };
 
     _handleOpenImageInPopupImage = () => {
@@ -44,9 +45,9 @@ export default class Card {
         this._busketElement =
             this._cloneElement.querySelector(".element__busket");
         this._likeElement = this._cloneElement.querySelector(".element__like");
-        this._imageElement.src = this._link;
-        this._imageElement.alt = this._name;
-        this._titleElement.textContent = this._name;
+        this._imageElement.src = this._data.link;
+        this._imageElement.alt = this._data.name;
+        this._titleElement.textContent = this._data.name;
         this._setEventListeners();
         return this._cloneElement;
     }
