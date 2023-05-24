@@ -46,8 +46,8 @@ export default class Card {
             this._cloneElement.querySelector(".element__busket");
         this._likeElement = this._cloneElement.querySelector(".element__like");
         this._imageElement.src = this._data.link;
-        this._imageElement.alt = this._data.name;
-        this._titleElement.textContent = this._data.name;
+        this._imageElement.alt = this._data.title;
+        this._titleElement.textContent = this._data.title;
         this._setEventListeners();
         return this._cloneElement;
     }

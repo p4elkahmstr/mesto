@@ -5,13 +5,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Mesto</title>
-        <link rel="stylesheet" href="./pages/index.css" />
     </head>
     <body class="page">
         <header class="header">
             <img
                 class="header__logo"
-                src="./images/logo.svg"
+                src="<%=require('./images/logo.svg')%>"
                 alt="Логотип Место"
             />
         </header>
@@ -20,7 +19,7 @@
                 <div class="profile__bio">
                     <img
                         class="profile__avatar"
-                        src="./images/image.jpg"
+                        src="<%=require('./images/image.jpg')%>"
                         alt="Дедушка в красной шапке"
                     />
                     <div class="profile__info">
@@ -47,20 +46,24 @@
                 <form
                     action="#"
                     class="popup__form"
-                    name="profile-form"
+                    name="profileForm"
                     novalidate
+                    id="profileForm"
                 >
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <input
                         type="text"
-                        id="name"
-                        name="name"
+                        id="username"
+                        name="username"
                         class="popup__input popup__input_valid"
                         required
                         minlength="2"
                         maxlength="40"
                     />
-                    <span id="name-error" class="popup__error"></span>
+                    <span
+                        id="username-error"
+                        class="popup__error username-error"
+                    ></span>
                     <input
                         type="text"
                         id="description"
@@ -70,7 +73,10 @@
                         minlength="2"
                         maxlength="200"
                     />
-                    <span id="description-error" class="popup__error"></span>
+                    <span
+                        id="description-error"
+                        class="popup__error description-error"
+                    ></span>
                     <button
                         type="submit"
                         class="popup__submit popup__submit_valid"
@@ -90,30 +96,37 @@
                 <form
                     action="#"
                     class="popup__form"
-                    name="card-form"
+                    name="cardForm"
+                    id="cardForm"
                     novalidate
                 >
                     <h2 class="popup__title">Новое место</h2>
                     <input
                         type="text"
                         id="title"
-                        name="name"
+                        name="title"
                         class="popup__input popup__input_valid"
                         placeholder="Название"
                         required
                         minlength="2"
                         maxlength="30"
                     />
-                    <span id="title-error" class="popup__error"></span>
+                    <span
+                        id="title-error"
+                        class="popup__error title-error"
+                    ></span>
                     <input
                         type="url"
-                        id="url"
-                        name="url"
+                        id="link"
+                        name="link"
                         class="popup__input popup__input_valid"
                         placeholder="Ссылка на картинку"
                         required
                     />
-                    <span id="url-error" class="popup__error"></span>
+                    <span
+                        id="link-error"
+                        class="popup__error link-error"
+                    ></span>
                     <button
                         type="submit"
                         class="popup__submit popup__submit_valid"
@@ -146,6 +159,5 @@
                 </div>
             </li>
         </template>
-        <script type="module" src="./scripts/index.js"></script>
     </body>
 </html>

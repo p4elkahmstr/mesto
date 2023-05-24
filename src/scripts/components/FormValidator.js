@@ -11,14 +11,15 @@ class FormValidator {
         this._inputList = form.querySelectorAll(this._inputSelector);
     }
 
-    _showError(currentInputErrorContainer, input) {
-        input.classList.add(this._errorClass);
-        currentInputErrorContainer.textContent = input.validationMessage;
+    _showError() {
+        this._input.classList.add(this._errorClass);
+        this._currentInputErrorContainer.textContent =
+            this._input.validationMessage;
     }
 
-    _hideError(currentInputErrorContainer, input) {
-        input.classList.remove(this._errorClass);
-        currentInputErrorContainer.textContent = "";
+    _hideError() {
+        this._input.classList.remove(this._errorClass);
+        this._currentInputErrorContainer.textContent = "";
     }
 
     _enableButton() {
@@ -41,19 +42,18 @@ class FormValidator {
         this._hasInvalidInput() ? this._disableButton() : this._enableButton();
     }
 
-    _checkInputValidity(input) {
-        const currentInputErrorContainer = this._form.querySelector(
-            `#${input.id}-error`
+    _checkInputValidity() {
+        this._currentInputErrorContainer = this._form.querySelector(
+            `#${this._input.name}-error`
         );
-        input.validity.valid
-            ? this._hideError(currentInputErrorContainer, input)
-            : this._showError(currentInputErrorContainer, input);
+        this._input.validity.valid ? this._hideError() : this._showError();
     }
 
     _setEventListeners() {
         this._inputList.forEach((input) => {
             input.addEventListener("input", () => {
-                this._checkInputValidity(input);
+                this._input = input;
+                this._checkInputValidity();
                 this._toggleButtonState();
             });
         });
@@ -65,11 +65,12 @@ class FormValidator {
 
     resetForm() {
         this._inputList.forEach((input) => {
-            const currentInputErrorContainer = this._form.querySelector(
-                `#${input.id}-error`
+            this._input = input;
+            this._currentInputErrorContainer = this._form.querySelector(
+                `#${this._input.name}-error`
             );
             if (!input.validity.valid) {
-                this._hideError(currentInputErrorContainer, input);
+                this._hideError();
             }
         });
         this._disableButton();
