@@ -17,11 +17,13 @@
         <main>
             <section class="profile">
                 <div class="profile__bio">
-                    <img
-                        class="profile__avatar"
-                        src="<%=require('./images/image.jpg')%>"
-                        alt="Дедушка в красной шапке"
-                    />
+                    <button class="profile__edit-avatar" type="button">
+                        <img
+                            class="profile__avatar"
+                            src="<%=require('./images/image.jpg')%>"
+                            alt="Дедушка в красной шапке"
+                        />
+                    </button>
                     <div class="profile__info">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
                         <button
@@ -149,13 +151,65 @@
                 </figure>
             </div>
         </section>
+        <section class="popup popup_delete">
+            <div class="popup__container">
+                <button class="popup__close" type="button"></button>
+                <form
+                    class="popup__form"
+                    action="#"
+                    name="cardDelete"
+                    id="cardDelete"
+                >
+                    <h2 class="popup__title">Вы уверены?</h2>
+                    <button type="submit" class="popup__submit">Да</button>
+                </form>
+            </div>
+        </section>
+        <section class="popup popup_avatar">
+            <div class="popup__container">
+                <button class="popup__close" type="button"></button>
+                <form
+                    action="#"
+                    class="popup__form"
+                    name="avatarEdit"
+                    novalidate
+                    id="avatarEdit"
+                >
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <input
+                        type="url"
+                        id="avatar"
+                        name="avatar"
+                        class="popup__input popup__input_valid"
+                        required
+                        minlength="2"
+                        maxlength="40"
+                        placeholder="Ссылка на картинку"
+                    />
+                    <span
+                        id="avatar-error"
+                        class="popup__error avatar-error"
+                    ></span>
+                    <button
+                        type="submit"
+                        class="popup__submit popup__submit_valid"
+                        disabled
+                    >
+                        Сохранить
+                    </button>
+                </form>
+            </div>
+        </section>
         <template id="cardElement">
             <li class="element">
                 <img class="element__image" src="#" alt="#" />
                 <button class="element__busket" type="button"></button>
                 <div class="element__menu">
                     <h2 class="element__title"></h2>
-                    <button class="element__like" type="button"></button>
+                    <div class="element__like-container">
+                        <button class="element__like" type="button"></button>
+                        <span class="element__likes">0</span>
+                    </div>
                 </div>
             </li>
         </template>

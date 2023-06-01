@@ -43,6 +43,8 @@ const selectorPopupProfile = ".popup_profile";
 const selectorPopupAddCard = ".popup_add-card";
 const selectorPopupImage = ".popup_picture";
 const selectorListElement = ".elements__list";
+const selectorPopupAvatar = ".popup_avatar";
+const selectorPopupDelete = ".popup_delete";
 
 const formValidator = {};
 
@@ -61,6 +63,8 @@ export {
     selectorPopupAddCard,
     selectorPopupImage,
     selectorListElement,
+    selectorPopupAvatar,
+    selectorPopupDelete,
     formValidator,
     configInfo,
 };

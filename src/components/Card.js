@@ -1,8 +1,9 @@
 export default class Card {
-    constructor(data, selectorTemplate, openPopupImage) {
+    constructor(data, selectorTemplate, openPopupImage, openPopupDelete) {
         this._data = data;
         this._selectorTemplate = selectorTemplate;
         this._openPopupImage = openPopupImage;
+        this._openPopupDelete = openPopupDelete;
     }
     _getTemplateClone() {
         return document
@@ -16,11 +17,7 @@ export default class Card {
     };
 
     _handleDelete = () => {
-        this._cloneElement.remove();
-        this._cloneElement = null;
-        this._likeElement = null;
-        this._imageElement = null;
-        this._titleElement = null;
+        this._openPopupDelete(this);
     };
 
     _handleOpenImageInPopupImage = () => {
@@ -34,6 +31,14 @@ export default class Card {
             "click",
             this._handleOpenImageInPopupImage
         );
+    }
+
+    cardRemove() {
+        this._cloneElement.remove();
+        this._cloneElement = null;
+        this._likeElement = null;
+        this._imageElement = null;
+        this._titleElement = null;
     }
 
     createCard() {
