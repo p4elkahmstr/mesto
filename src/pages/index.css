@@ -45,5 +45,5 @@
 @import url(../blocks/element/__like-container/element__like-container.css);
 @import url(../blocks/element/__likes/element__likes.css);
 @import url(../blocks/profile/__edit-avatar/profile__edit-avatar.css);
-@import url(../blocks/popup/__title-delete/popup__title_delete.css);
+@import url(../blocks/popup/__title-delete/popup__title-delete.css);
 @import url(../blocks/popup/__submit-delete/popup__submit-delete.css);
