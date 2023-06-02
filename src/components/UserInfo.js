@@ -6,6 +6,9 @@ export default class UserInfo {
         this._profileDescription = document.querySelector(
             configInfo.selectorProfileDescription
         );
+        this._profileAvatar = document.querySelector(
+            configInfo.selectorProfileAvatar
+        );
     }
 
     getUserInfo() {
@@ -15,8 +18,9 @@ export default class UserInfo {
         };
     }
 
-    setUserInfo(data) {
-        this._profileName.textContent = data.username;
-        this._profileDescription.textContent = data.description;
+    setUserInfo({ username, description, avatar }) {
+        this._profileName.textContent = username;
+        this._profileDescription.textContent = description;
+        this._profileAvatar.src = avatar;
     }
 }
