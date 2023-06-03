@@ -11,6 +11,7 @@ import {
     validationConfig,
     popupEditButtonElement,
     popupAddButtonElement,
+    popupEditProfileAvatar,
     selectorTemplate,
     selectorPopupProfile,
     selectorPopupAddCard,
@@ -46,8 +47,7 @@ const popupDeleteCard = new PopupCardDelete(
             })
             .catch((error) =>
                 console.error(`Произошла ошибка при удалении карточки ${error}`)
-            )
-            .finally();
+            );
     }
 );
 
@@ -169,12 +169,10 @@ popupAddButtonElement.addEventListener("click", () => {
     popupAddCard.open();
 });
 
-document
-    .querySelector(".profile__edit-avatar")
-    .addEventListener("click", () => {
-        formValidator.avatarEdit.resetForm();
-        avatarPopup.open();
-    });
+popupEditProfileAvatar.addEventListener("click", () => {
+    formValidator.avatarEdit.resetForm();
+    avatarPopup.open();
+});
 
 Promise.all([api.getInfo(), api.getCards()])
     .then(([dataUser, dataCard]) => {

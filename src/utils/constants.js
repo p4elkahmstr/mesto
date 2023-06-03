@@ -10,6 +10,7 @@ const validationConfig = {
 
 const popupEditButtonElement = document.querySelector(".profile__edit-button");
 const popupAddButtonElement = document.querySelector(".profile__add-button");
+const popupEditProfileAvatar = document.querySelector(".profile__edit-avatar");
 
 const selectorTemplate = "#cardElement";
 const selectorPopupProfile = ".popup_profile";
@@ -31,6 +32,7 @@ export {
     validationConfig,
     popupEditButtonElement,
     popupAddButtonElement,
+    popupEditProfileAvatar,
     selectorTemplate,
     selectorPopupProfile,
     selectorPopupAddCard,
